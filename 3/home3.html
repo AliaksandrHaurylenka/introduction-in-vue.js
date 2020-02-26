@@ -1,0 +1,37 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Величие Vue.js</title>
+</head>
+<body>
+<div class="container">
+  <h3 v-if="gender == 'женщина'">Привет, Мисс {{name}}</h3>
+  <h3 v-if="gender == 'мужчина'">Привет, Мистер {{name}}</h3>
+  <h3 v-if="gender && gender != 'женщина' && gender != 'мужчина'">Так, значит, вы не можете решить. Отлично!</h3>
+  <form class="mt-3">
+    <div class="form-group">
+      <label for="">Введите свой пол:</label>
+      <input class="form-control" v-model.lazy="gender"></input>
+    </div>
+    <div class="form-group">
+      <label for="">Введите свое имя:</label>
+      <input class="form-control" v-model="name"></input>
+    </div>
+  </form>
+
+  
+  <pre class="bg-warning">{{ $data }}</pre>
+</div>
+</body>
+<!-- cdn that contains all contents of Vue.js -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '.container',
+        data: {
+            gender: '',
+            name: '',
+        },
+    })
+</script>
+</html>
